@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Rails untitled: test">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="wakatime_test">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="anefirman"/>
+    <schema id="4" parent="1" name="coldstorage"/>
+    <schema id="5" parent="1" name="db_taxies"/>
+    <schema id="6" parent="1" name="hashtag"/>
+    <schema id="7" parent="1" name="information_schema"/>
+    <schema id="8" parent="1" name="jaluxscy"/>
+    <schema id="9" parent="1" name="jalzhero"/>
+    <schema id="10" parent="1" name="likers"/>
+    <schema id="11" parent="1" name="linebot"/>
+    <schema id="12" parent="1" name="mysql"/>
+    <schema id="13" parent="1" name="opentrips"/>
+    <schema id="14" parent="1" name="performance_schema"/>
+    <schema id="15" parent="1" name="phpmyadmin"/>
+    <schema id="16" parent="1" name="test"/>
+    <schema id="17" parent="1" name="tower"/>
+    <schema id="18" parent="1" name="wakatime_development"/>
+    <schema id="19" parent="1" name="wakatime_production"/>
+    <schema id="20" parent="1" name="whdb"/>
+  </database-model>
+</dataSource>
