@@ -1,7 +1,9 @@
 class IndexController < ApplicationController
   include WakatimeHelper
   def index
-    @url = get_redirect
+    if session[:access_token].nil?
+      @url = get_redirect
+    end
   end
 
   def callback; end

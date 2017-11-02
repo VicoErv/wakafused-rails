@@ -1,11 +1,1 @@
-<html>
-<head>
-
-</head>
-<body>
-<a href="<%=@url%>">login</a>
-<script>
-
-</script>
-</body>
-</html>
+<%if !@url.nil? then %><a href="<%= @url%>">login</a><% end %>
