@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102164323) do
+ActiveRecord::Schema.define(version: 20171102175032) do
 
   create_table "tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id", null: false
     t.string "refresh_token", limit: 128, null: false
     t.integer "expires_in", null: false
-    t.string "uid", limit: 32, null: false
+    t.string "uid", limit: 64, null: false
     t.string "token_type", limit: 16, null: false
     t.string "scope", limit: 96, null: false
     t.string "access_token", limit: 128, null: false
