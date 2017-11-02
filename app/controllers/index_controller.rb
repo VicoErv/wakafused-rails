@@ -7,9 +7,10 @@ class IndexController < ApplicationController
   def callback; end
 
   def invalidate_callback
-    session[:access_token] = params['access_token']
     user_data = get_user
     if !user_data.key?('error')
+      session[:access_token] = params['access_token']
+
       user = User.find_by(uid: user_data['data']['id'])
       if user.nil?
         user = User.new
@@ -23,7 +24,21 @@ class IndexController < ApplicationController
                     username: user_data['data']['username'],
                     website: user_data['data']['website'])
       end
-      render json: { test: user.id }
+
+      token = Token.find_by(user_id: user.id)
+      if token.nil?
+        token = Token.new
+        token.insert(user.id, params)
+      else
+        token.update(refresh_token: params['refresh_token'],
+                     expires_in: params['expires_in'],
+                     uid: params['uid'],
+                     token_type: params['token_type'],
+                     scope: params['scope'],
+                     access_token: params['access_token'])
+      end
+
+      render json: { user_id: user.id, token_id: token.id }
     else
       render json: { error: 'api error' }
     end
