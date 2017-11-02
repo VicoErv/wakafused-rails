@@ -68,3 +68,4 @@ bower.json
 # Ignore Byebug command history file.
 >>>>>>> 7eea946d2981c587954f1cd9a539651303e660a8
 .idea/inspectionProfiles/
+.idea/
