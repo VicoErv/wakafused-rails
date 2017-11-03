@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102175032) do
+ActiveRecord::Schema.define(version: 20171103124714) do
+
+  create_table "heartbeats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id", null: false
+    t.string "branch", limit: 32
+    t.string "entity", limit: 256, null: false
+    t.string "heartbeat_id", limit: 64, null: false
+    t.string "language", limit: 32
+    t.string "project", limit: 64, null: false
+    t.decimal "time", precision: 15, scale: 3, null: false
+    t.string "data_type", limit: 32, null: false
+  end
 
   create_table "tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id", null: false

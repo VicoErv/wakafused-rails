@@ -3,15 +3,32 @@ class IndexController < ApplicationController
   def index
     if session[:access_token].nil?
       @url = get_redirect
+    else
+      heartbeat = Heartbeat.select('id, language, FROM_UNIXTIME(time) as hour, time')
+                      .where(user_id: session[:uid]).group('language, Hour(FROM_UNIXTIME(time))').order('hour ASC')
+      @js_array = []
+      heartbeat.each_with_index do |v, k|
+        unless heartbeat[k + 1].nil?
+          time_differ = heartbeat[k + 1][:hour] - v[:hour]
+          @js_array.push [v.language.nil? ? 'Other' : v.language,
+                          v[:hour],
+                          time_differ > 900 ? v[:hour] + 900 : heartbeat[k + 1][:hour]]
+        end
+      end
     end
   end
 
   def callback; end
 
+  def logout
+    reset_session
+    redirect_to controller: 'index'
+  end
+
   def invalidate_callback
+    session[:access_token] = params['access_token']
     user_data = get_user
     if !user_data.key?('error')
-      session[:access_token] = params['access_token']
 
       user = User.find_by(uid: user_data['data']['id'])
       if user.nil?
@@ -39,7 +56,7 @@ class IndexController < ApplicationController
                      scope: params['scope'],
                      access_token: params['access_token'])
       end
-
+      session[:uid] = user.id
       render json: { user_id: user.id, token_id: token.id }
     else
       render json: { error: 'api error' }

@@ -1,1 +1,4 @@
-<%if !@url.nil? then %><a href="<%= @url%>">login</a><% end %>
+<%if !@url.nil? then %><a href="<%= @url%>">login</a><% else %>
+    <a href="/logout">logout</a>
+    <%= timeline @js_array %>
+<% end %>

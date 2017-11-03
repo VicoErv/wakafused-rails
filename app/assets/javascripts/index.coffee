@@ -32,7 +32,7 @@ class Callback
       dataType: 'json',
       data: json_data,
       success: (data) ->
-        console.log data
+        location.replace('/')
       error: (e) ->
         alert 'an error occured'
     }
