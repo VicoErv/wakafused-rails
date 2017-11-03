@@ -1,4 +1,3 @@
-<%if !@url.nil? then %><a href="<%= @url%>">login</a><% else %>
-    <a href="/logout">logout</a>
+<% unless session[:uid].nil? %>
     <%= timeline @js_array %>
 <% end %>

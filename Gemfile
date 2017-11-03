@@ -33,6 +33,8 @@ gem 'figaro'
 gem 'jquery-rails'
 gem 'chartkick'
 gem 'highcharts-rails'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'popper_js', '~> 1.12.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
