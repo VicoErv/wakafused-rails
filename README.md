@@ -1,6 +1,5 @@
-Wakafused-Rails
+Wakafused-Rails [![Build Status](https://travis-ci.org/VicoErv/wakafused-rails.svg?branch=master)](https://travis-ci.org/VicoErv/wakafused-rails)
 ---
-![travis-ci](https://api.travis-ci.org/VicoErv/wakafused-rails.svg?branch=master)
 ![Wakafused-Rails home](https://raw.githubusercontent.com/VicoErv/wakafused-rails/master/screenshot/wakafused-scratch.png "Wakafused-Rails")
 Wakafused-Rails is WakaTime client, built using rails.
 
