@@ -4,4 +4,8 @@ rvm:
 services:
   - mysql
 before_install:
-  - mysql -e 'CREATE DATABASE wakafused;'
+  - mysql -e 'CREATE DATABASE wakatime_test'
+  - mysql -e 'CREATE DATABASE wakatime_development'
+  - mysql -e 'CREATE DATABASE wakatime_production'
+before_Script:
+  - RAILS_ENV=development rake db:migrate
