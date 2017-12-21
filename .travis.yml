@@ -7,5 +7,5 @@ before_install:
   - mysql -e 'CREATE DATABASE wakatime_test'
   - mysql -e 'CREATE DATABASE wakatime_development'
   - mysql -e 'CREATE DATABASE wakatime_production'
-before_Script:
+script:
   - RAILS_ENV=development rake db:migrate
